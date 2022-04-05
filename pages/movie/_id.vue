@@ -104,13 +104,11 @@ export default {
   },
   methods: {
     requestDiffSizeImage(url, size = 700) {
-      // 잘못된 URL(Poster)인 경우.
       if (!url || url === 'N/A') {
         this.imageLoading = false
         return ''
       }
       const src = url.replace('SX300', `SX${size}`)
-      // 정상적인 URL인 경우.
       this.$loadImage(src)
         .then(() => {
           this.imageLoading = false
